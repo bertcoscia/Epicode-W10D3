@@ -1,27 +1,26 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import MyNavBar from "./components/MyNavBar";
-import Gallery from "./components/Gallery";
 import MyFooter from "./components/MyFooter";
-import PageHeading from "./components/PageHeading";
-import SearchMovie from "./components/SearchMovie";
-import AccountPage from "./components/AccountPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import TvShows from "./components/TvShows";
+import NotFound from "./components/NotFound";
 
-function App() {
+const App = () => {
   return (
     <div className="text-white" style={{ backgroundColor: "#141414" }}>
-      <MyNavBar />
-      <PageHeading />
-      <SearchMovie />
-      <Gallery query="Star Wars" />
-      <Gallery query="Godzilla" />
-      <Gallery query="The Lord of The Rings" />
-      <Gallery query="Harry Potter" />
-      <Gallery query="Scary Movie" />
-      <AccountPage />
-      <MyFooter />
+      <BrowserRouter>
+        <MyNavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tvshows" element={<TvShows />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <MyFooter />
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;

@@ -2,8 +2,9 @@ import { Dropdown } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { NavLink } from "react-router-dom";
 
-function MyNavBar() {
+const MyNavBar = props => {
   return (
     <Navbar expand="lg" className="" style={{ backgroundColor: "#141414" }}>
       <Container fluid className="d-flex justify-content-between">
@@ -13,37 +14,37 @@ function MyNavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home" className="">
+            <NavLink to={"/"} className={"nav-link"}>
               Home
-            </Nav.Link>
-            <Nav.Link href="#Home" className="">
+            </NavLink>
+            <NavLink to="/tvshows" className="nav-link">
               TV Shows
-            </Nav.Link>
-            <Nav.Link href="#Home" className="">
+            </NavLink>
+            <NavLink to={"/movies"} className={"nav-link"}>
               Movies
-            </Nav.Link>
-            <Nav.Link href="#Home" className="">
+            </NavLink>
+            <NavLink to={"/recently-added"} className={"nav-link"}>
               Recently Added
-            </Nav.Link>
-            <Nav.Link href="#Home" className="">
+            </NavLink>
+            <NavLink to={"/my-list"} className={"nav-link"}>
               My List
-            </Nav.Link>
+            </NavLink>
           </Nav>
           <Nav className="align-items-center">
-            <Nav.Link href="#home">
+            <NavLink to={"/"} className={"nav-link"}>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#808080" className="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
               </svg>
-            </Nav.Link>
-            <Nav.Link href="#home" className="">
+            </NavLink>
+            <NavLink to={"/"} className={"nav-link"}>
               KIDS
-            </Nav.Link>
-            <Nav.Link href="#home" className="">
+            </NavLink>
+            <NavLink to={"/"} className={"nav-link"}>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#808080" className="bi bi-bell-fill" viewBox="0 0 16 16">
                 <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
               </svg>
-            </Nav.Link>
-            <Nav.Link href="#home">
+            </NavLink>
+            <NavLink to={"/"} className={"nav-link"}>
               <Dropdown>
                 <Dropdown.Toggle variant="" className="">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="" width="30px" />
@@ -54,12 +55,12 @@ function MyNavBar() {
                   <Dropdown.Item>Log Out</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-}
+};
 
 export default MyNavBar;
