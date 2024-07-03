@@ -8,9 +8,9 @@ const MyNavBar = props => {
   return (
     <Navbar expand="lg" className="" style={{ backgroundColor: "#141414" }}>
       <Container fluid className="d-flex justify-content-between">
-        <Navbar.Brand href="#home">
+        <NavLink to="/">
           <img src="https://images.ctfassets.net/4cd45et68cgf/7LrExJ6PAj6MSIPkDyCO86/542b1dfabbf3959908f69be546879952/Netflix-Brand-Logo.png" alt="logo netflix" width="120px" />
-        </Navbar.Brand>
+        </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

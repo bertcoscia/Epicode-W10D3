@@ -1,8 +1,9 @@
 import { Component } from "react";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const URL = "http://www.omdbapi.com/?apikey=71c0d48&s=";
-const searchParam = "&type=movie";
+const searchType = "&type=";
 
 class Gallery extends Component {
   state = {
@@ -10,8 +11,8 @@ class Gallery extends Component {
     isLoading: true
   };
 
-  fetchMovies(query) {
-    fetch(`${URL + query + searchParam}`)
+  fetchMovies(query, searchParam) {
+    fetch(`${URL + query + searchType + searchParam}`)
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -28,7 +29,7 @@ class Gallery extends Component {
   }
 
   componentDidMount() {
-    this.fetchMovies(this.props.query);
+    this.fetchMovies(this.props.query, this.props.searchParam);
   }
 
   capitalizeTitle(title) {
@@ -51,7 +52,9 @@ class Gallery extends Component {
           {this.state.results &&
             this.state.results.map(result => (
               <Col key={result.imdbID} className="item" xs={5}>
-                <img src={result.Poster} alt={result.Title} className="item-img" />
+                <Link to={"/details/" + result.imdbID}>
+                  <img src={result.Poster} alt={result.Title} className="item-img" />
+                </Link>
               </Col>
             ))}
         </Row>

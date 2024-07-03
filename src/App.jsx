@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import TvShows from "./components/TvShows";
 import NotFound from "./components/NotFound";
+import MovieDetails from "./components/MovieDetails";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tvshows" element={<TvShows />} />
+          <Route path="details/:id" element={<MovieDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <MyFooter />

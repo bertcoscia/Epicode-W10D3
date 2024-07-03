@@ -3,12 +3,10 @@ import PageHeading from "./PageHeading";
 
 const TvShows = () => (
   <>
-    <PageHeading />
-    <Gallery query="Star Wars" />
-    <Gallery query="Godzilla" />
-    <Gallery query="The Lord of The Rings" />
-    <Gallery query="Harry Potter" />
-    <Gallery query="Scary Movie" />
+    <PageHeading heading="TV Shows" />
+    <Gallery query="Rick and Morty" searchParam="series" />
+    <Gallery query="Breaking Bad" searchParam="series" />
+    <Gallery query="Grey's Anatomy" searchParam="series" />
   </>
 );
 
